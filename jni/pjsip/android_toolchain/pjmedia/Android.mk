@@ -12,7 +12,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)../pjlib/include/ $(LOCAL_PATH)../pjlib-util/in
 	$(LOCAL_PATH)../third_party/srtp/include $(LOCAL_PATH)../third_party/srtp/include \
 	$(LOCAL_PATH)../third_party/srtp/crypto/include $(LOCAL_PATH)../third_party/build/srtp/ \
 	$(LOCAL_PATH)../third_party/build/speex/  $(LOCAL_PATH)../third_party/speex/include \
-	$(LOCAL_PATH)../third_party/
+	$(LOCAL_PATH)../third_party/ \
+	$(LOCAL_PATH)../third_party/ $(LOCAL_PATH)../third_party/g729/include
 
 
 LOCAL_CFLAGS := $(MY_PJSIP_FLAGS)
@@ -65,7 +66,8 @@ LOCAL_SRC_FILES := $(PJLIB_SRC_DIR)/alaw_ulaw.c $(PJLIB_SRC_DIR)/alaw_ulaw_table
 #ifeq ($(MY_USE_GSM),1)
 	LOCAL_SRC_FILES += $(PJMEDIACODEC_SRC_DIR)/gsm.c 
 #endif
-
+#wangfei add g729
+	LOCAL_SRC_FILES += $(PJMEDIACODEC_SRC_DIR)/g729.c 
 #zzc add Ffmpeg codec
 LOCAL_SRC_FILES += $(PJMEDIACODEC_SRC_DIR)/ffmpeg_codecs.c \
 	$(PJLIB_SRC_DIR)/converter_libswscale.c \
@@ -86,6 +88,10 @@ PJ_ANDROID_SRC_DIR := ../../android_sources/pjmedia/src/
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../android_sources/pjmedia/include/pjmedia-audiodev/ \
 	$(LOCAL_PATH)/../../android_sources/pjmedia/include/
 LOCAL_SRC_FILES += $(PJ_ANDROID_SRC_DIR)/pjmedia-audiodev/android_jni_dev.cpp
+
+#wangfei add g729
+LOCAL_LDLIBS += -lg729
+
 
 #zzc add for PJMEDIA_HAS_VIDEO=1
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../android_sources/pjmedia/include/pjmedia-videodev/
@@ -179,8 +185,8 @@ LOCAL_LDLIBS += $(BASE_X264_BUILD_DIR)/libx264.a
 LOCAL_CFLAGS := $(MY_PJSIP_FLAGS) -DWEBRTC_ANDROID \
 	-DPJMEDIA_HAS_FFMPEG=1 \
 	-DPJMEDIA_HAS_FFMPEG_CODEC=1 \
-	-DPJMEDIA_HAS_FFMPEG_CODEC_H264=1
-	
+	-DPJMEDIA_HAS_FFMPEG_CODEC_H264=1 \
+	-DPJMEDIA_HAS_G729_CODEC=1	
 	
 LOCAL_SHARED_LIBRARIES += libpjsipjni
 LOCAL_LDLIBS += -lGLESv2 -llog

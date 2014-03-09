@@ -55,5 +55,6 @@ public class CallJni {
 	public static native int getGroupNo(String anyGroupNo);
 	
 	public static native int sendDTMF(String digit);
-
+	
+	public static native int sendCommonMessage(String msg);
 }

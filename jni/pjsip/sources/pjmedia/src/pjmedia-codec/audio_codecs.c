@@ -66,12 +66,19 @@ pjmedia_codec_register_audio_codecs(pjmedia_endpt *endpt,
 	return status;
 #endif /* PJMEDIA_HAS_ILBC_CODEC */
 
-#if PJMEDIA_HAS_GSM_CODEC
+#if 0
     /* Register GSM */
     status = pjmedia_codec_gsm_init(endpt);
     if (status != PJ_SUCCESS)
 	return status;
 #endif /* PJMEDIA_HAS_GSM_CODEC */
+
+#if PJMEDIA_HAS_G729_CODEC
+    /* Register G729 */
+    status = pjmedia_codec_g729_init(endpt);
+    if (status != PJ_SUCCESS)
+       return status;
+#endif /* PJMEDIA_HAS_G729_CODEC  added by wangfei*/
 
 #if PJMEDIA_HAS_G711_CODEC
     /* Register PCMA and PCMU */

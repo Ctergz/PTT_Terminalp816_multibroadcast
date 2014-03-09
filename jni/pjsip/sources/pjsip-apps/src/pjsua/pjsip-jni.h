@@ -72,6 +72,7 @@ JNIEXPORT jint JNICALL open_ptt(JNIEnv* env, jclass cls);
 
 JNIEXPORT jint JNICALL ho_ind(JNIEnv* env, jclass cls, jstring ip);
 
+JNIEXPORT jint JNICALL send_common_message(JNIEnv* env, jclass cls, jstring msg);
 PJ_END_DECL
 
 

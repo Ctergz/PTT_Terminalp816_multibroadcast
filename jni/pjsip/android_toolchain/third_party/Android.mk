@@ -40,5 +40,5 @@ include $(THIRD_PARTY_PATH)/srtp/Android.mk
 #ifeq ($(MY_USE_G7221),1)
 	include $(THIRD_PARTY_PATH)/g7221/Android.mk
 #endif
-
+include $(THIRD_PARTY_PATH)/g729/Android.mk
 

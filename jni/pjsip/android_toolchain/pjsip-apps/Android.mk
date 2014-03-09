@@ -19,7 +19,7 @@ LOCAL_SRC_FILES := $(PJLIB_SRC_DIR)/pjsua_app.c $(PJLIB_SRC_DIR)/ptt_extension.c
 	$(PJLIB_SRC_DIR)/main.c
 
 #fuck,because the libs sequence:pjsip->pjmedia->(third party)->pjlib-util->pjlib
-LOCAL_STATIC_LIBRARIES := pjsip pjnath pjmedia srtp resample g7221 ilbc gsm speex pjlib-util pjlib
+LOCAL_STATIC_LIBRARIES := pjsip pjnath pjmedia srtp resample g7221 g729 ilbc gsm speex pjlib-util pjlib
 
 #for csipsimple-wrapper
 #LOCAL_STATIC_LIBRARIES+=swig-glue pjsipwrapper
